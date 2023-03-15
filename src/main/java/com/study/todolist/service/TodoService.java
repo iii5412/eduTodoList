@@ -21,15 +21,16 @@ public class TodoService {
     public List<Todo> getAll() {
         return todoRepository.findAll();
     }
-
+    //TODO : TodoResponse 생성 후 반환타입 변경 필요
     public Todo get(Long id) {
         return todoRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
-
+    //TODO : TodoResponse 생성 후 반환타입 변경 필요
     public Todo save(TodoCreate todoCreate) {
         return todoRepository.save(new Todo(todoCreate));
     }
-    /*
+    //TODO : TodoResponse 생성 후 반환타입 변경 필요
+    /**
         @Transactional 추가로 save 따로 하지 않음.
         트랜잭션이 끝나면 더티체킹을하여 Persistence Context에서 update한다.
     */
