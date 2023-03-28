@@ -37,8 +37,7 @@ public class TodoService {
     @Transactional
     public Todo edit(Long id, TodoEdit todoEdit) {
         final Todo findTodo = todoRepository.findById(id).orElseThrow(IllegalArgumentException::new);
-        final TodoEditor.TodoEditorBuilder builder = findTodo.toEditor();
-        final TodoEditor todoEditor = builder.content(todoEdit.getContent()).build();
+        final TodoEditor todoEditor = findTodo.toEditor().content(todoEdit.getContent()).build();
 
         findTodo.edit(todoEditor);
 

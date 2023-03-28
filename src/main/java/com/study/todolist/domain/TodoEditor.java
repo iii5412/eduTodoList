@@ -1,6 +1,5 @@
 package com.study.todolist.domain;
 
-import com.study.todolist.request.TodoEdit;
 import lombok.Getter;
 
 @Getter
