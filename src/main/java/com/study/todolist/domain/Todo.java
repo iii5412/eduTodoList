@@ -1,6 +1,7 @@
 package com.study.todolist.domain;
 
 import com.study.todolist.request.TodoCreate;
+import com.study.todolist.util.DateTimeUtils;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -26,13 +27,13 @@ public class Todo {
     @Builder
     public Todo(String content, String modifierId) {
         this.content = content;
-        this.modifyDate = LocalDateTime.now();
+        this.modifyDate = DateTimeUtils.getCurrentLocalDateTime();
         this.modifierId = modifierId;
     }
 
     public Todo(TodoCreate todoCreate) {
         this.content = todoCreate.getContent();
-        this.modifyDate = LocalDateTime.now();
+        this.modifyDate = DateTimeUtils.getCurrentLocalDateTime();
         this.modifierId = todoCreate.getModifierId();
     }
 
